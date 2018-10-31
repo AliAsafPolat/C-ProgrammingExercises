@@ -1,0 +1,22 @@
+struct word {
+    char* data;
+};
+
+
+struct sentence {
+    struct word* data;
+    int word_count;//the number of words in a sentence
+};
+
+
+struct paragraph {
+    struct sentence* data  ;
+    int sentence_count;//the number of sentences in a paragraph
+};
+
+
+struct document {
+    struct paragraph* data;
+    int paragraph_count;//the number of paragraphs in a document
+};
+
