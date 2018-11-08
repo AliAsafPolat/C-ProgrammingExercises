@@ -1,0 +1,13 @@
+While using header 
+
+At least one of the files must have a main func.
+
+#include .h files.
+
+Be sure no 2 files have functions with the same name in it.
+
+Be sure no 2 files define the same global variables.
+
+extern int globalvar___
+
+
