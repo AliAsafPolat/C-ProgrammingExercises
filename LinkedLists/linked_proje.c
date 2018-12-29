@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 
 struct liste{
 	int id;
@@ -44,7 +45,17 @@ void istek_sonra(int id, int istekid ){
 	yeni=eleman_olustur();
 	yeni->id=id;
 	
-	for(p=head;p->id!=istekid;p=p->next);
+	if(head==NULL){
+		printf("Listemiz bostur isteginizi yerine getiremedik :( \n");
+	return;
+	}
+	
+	
+	for(p=head;p->next!=NULL&&p->id!=istekid;p=p->next);
+	if(p->next==NULL){
+	printf("Ýstediginiz eleman listede bulunamadi.\n\n");
+	return;
+	} 
 	yeni->next=p->next;
 	p->next=yeni;
 	
@@ -54,7 +65,18 @@ void istek_sonra(int id, int istekid ){
 void eleman_sil(int id){
 	ELEMAN *p;
 	
-	for (p=head;p->next->id!=id;p=p->next);
+	if(head->id==id){
+		head=head->next;
+		return;
+	}
+	
+	
+	for (p=head;p->next!=NULL&&p->next->id!=id;p=p->next);
+	if(p->next==NULL){
+	
+	printf("***Silmek istenen eleman bulunamadi\n\n");
+	return;}
+	else
 	p->next=p->next->next;
 	
 }
@@ -92,7 +114,7 @@ while(n!=3){
 			break;	
 		
 		case 2:
-			printf("Silmek istediðiniz elemaný seçiniz.");
+			printf("Silmek istediginiz elemani seciniz.");
 			scanf("%d",&id);
 			eleman_sil(id);
 			break;
