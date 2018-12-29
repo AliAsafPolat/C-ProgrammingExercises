@@ -53,7 +53,7 @@ void istek_sonra(int id, int istekid ){
 	
 	for(p=head;p->next!=NULL&&p->id!=istekid;p=p->next);
 	if(p->next==NULL){
-	printf("Ýstediginiz eleman listede bulunamadi.\n\n");
+	printf("Istediginiz eleman listede bulunamadi.\n\n");
 	return;
 	} 
 	yeni->next=p->next;
