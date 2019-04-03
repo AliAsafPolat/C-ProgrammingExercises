@@ -8,61 +8,61 @@ typedef struct node{
 
 
 Node* dugumOlustur(int veri){
-	Node *dugum;							//Yeni düğüm oluştur.
+	Node *dugum;							//Yeni dÃ¼ÄŸÃ¼m oluÅŸtur.
 	dugum=(struct node*)malloc(sizeof(struct node));
 	dugum->deger=veri;						//Girilen veriyi ata.
-	dugum->left=NULL;						//Kolları sıfırla.
+	dugum->left=NULL;						//KollarÄ± sÄ±fÄ±rla.
 	dugum->right=NULL;
-	return dugum;							//Oluşturduğun düğümü döndür.
+	return dugum;							//OluÅŸturduÄŸun dÃ¼ÄŸÃ¼mÃ¼ dÃ¶ndÃ¼r.
 }
 
-Node* insert(Node *node,int data){ 			//Buradaki node head i tutuyor.
-	if(node==NULL)							//Eğer boş bir kola gelindiyse node u oluştur.
+Node* insert(Node *node,int data){ 					//Buradaki node head i tutuyor.
+	if(node==NULL)							//EÄŸer boÅŸ bir kola gelindiyse node u oluÅŸtur.
 	return dugumOlustur(data);
 	
-	if(node->deger>data)					//Eğer data node dan küçükse node un sol koluna ilerle.
+	if(node->deger>data)						//EÄŸer data node dan kÃ¼Ã§Ã¼kse node un sol koluna ilerle.
 	node->left=insert(node->left,data);
-	else if(node->deger<data)				//Eğer data node dan büyükse node un sağ koluna ilerle.
+	else if(node->deger<data)					//EÄŸer data node dan bÃ¼yÃ¼kse node un saÄŸ koluna ilerle.
 	node->right=insert(node->right,data);
 	
-	return node;							//En son node u döndür ki node->left ve node->right atamaları sağlanabilsin.
+	return node;							//En son node u dÃ¶ndÃ¼r ki node->left ve node->right atamalarÄ± saÄŸlanabilsin.
 }
 
 Node* minValNode(Node *node){
 	Node *current;
-	current=node;							//En düşük node u bulmak için adımlar..
-	while(current->left!=NULL)				//Güncel node null olmakdıkça sola git.
+	current=node;							//En dÃ¼ÅŸÃ¼k node u bulmak iÃ§in adÄ±mlar..
+	while(current->left!=NULL)					//GÃ¼ncel node null olmakdÄ±kÃ§a sola git.
 	current=current->left;
-	return current;							//En sola geldiğinde döndür.
+	return current;							//En sola geldiÄŸinde dÃ¶ndÃ¼r.
 }
 
-Node* del(Node *root,int data){				//Bu kısımda düğüm silme fonksiyonu bulunmaktadır.
+Node* del(Node *root,int data){						//Bu kÄ±sÄ±mda dÃ¼ÄŸÃ¼m silme fonksiyonu bulunmaktadÄ±r.
 if(root==NULL)								//Recursive final case..
 return root;	
 
-if(data<root->deger)						//Eger data roottan küçükse sola ilerle.				
+if(data<root->deger)						//Eger data roottan kÃ¼Ã§Ã¼kse sola ilerle.				
 root->left=del(root->left,data);	
-else if(data>root->deger)					//Eğer data roottan büyükse sağa ilerle.
+else if(data>root->deger)					//EÄŸer data roottan bÃ¼yÃ¼kse saÄŸa ilerle.
 root->right=del(root->right,data);
 else{
-	if(root->left==NULL){					//Silmede 3 durum vardır birincisi silinecek node un sag kolu dolu olabilir.
-		Node *tmp=root->right;				//Eger böyle bir durum mevcut ise sağ kol dondurulur ve node serbest bırakılır.
-		//free(root);						//Burada döndürmenin mantığı recursive bir yapı tasarlandığından root->right=del(root->right,data); 
-		return tmp;							//kod parçasında root->right kısmına silinden node un sağ bacağı yerleşecek demektir.
+	if(root->left==NULL){					//Silmede 3 durum vardÄ±r birincisi silinecek node un sag kolu dolu olabilir.
+		Node *tmp=root->right;				//Eger bÃ¶yle bir durum mevcut ise saÄŸ kol dondurulur ve node serbest bÄ±rakÄ±lÄ±r.
+		//free(root);					//Burada dÃ¶ndÃ¼rmenin mantÄ±ÄŸÄ± recursive bir yapÄ± tasarlandÄ±ÄŸÄ±ndan root->right=del(root->right,data); 
+		return tmp;					//kod parÃ§asÄ±nda root->right kÄ±smÄ±na silinden node un saÄŸ bacaÄŸÄ± yerleÅŸecek demektir.
 	}else if(root->right==NULL){
-		Node *tmp=root->left;				//İkinci bir durum sağ bacağın boş sol bacağın dolu olması durumudur.
-		//free(root);						//Sol bacak döndürülür ve node silinir.
+		Node *tmp=root->left;				//Ä°kinci bir durum saÄŸ bacaÄŸÄ±n boÅŸ sol bacaÄŸÄ±n dolu olmasÄ± durumudur.
+		//free(root);					//Sol bacak dÃ¶ndÃ¼rÃ¼lÃ¼r ve node silinir.
 		return tmp;
 	}
-	Node *tmp=minValNode(root->right);		//Eğer silinecek node un her iki bacagı da doluysa node un sağ kolunda bulunan en küçük elemanın 
-	root->deger=tmp->deger;					//bulunması gerekir.Bulunan bu değer node un yerine atanır.
-	root->right=del(root->right,tmp->deger);//Sağ alt ağaçtan alınan en küçük değerin silinmesi için tekrar recursive yapıya başvurulur.
+	Node *tmp=minValNode(root->right);			//EÄŸer silinecek node un her iki bacagÄ± da doluysa node un saÄŸ kolunda bulunan en kÃ¼Ã§Ã¼k elemanÄ±n 
+	root->deger=tmp->deger;					//bulunmasÄ± gerekir.Bulunan bu deÄŸer node un yerine atanÄ±r.
+	root->right=del(root->right,tmp->deger);		//SaÄŸ alt aÄŸaÃ§tan alÄ±nan en kÃ¼Ã§Ã¼k deÄŸerin silinmesi iÃ§in tekrar recursive yapÄ±ya baÅŸvurulur.
 }
-return root;								//root->right=del(root->right,data); işlemlerinin sağlanması için recursive yapıda eksik olmamalı  
+return root;							//root->right=del(root->right,data); iÅŸlemlerinin saÄŸlanmasÄ± iÃ§in recursive yapÄ±da eksik olmamalÄ±  
 
 }
 
-void preTraverse(Node *root){				//Agacı Node-Left-Right şeklinde yazdırmayı sağlar.
+void preTraverse(Node *root){				//AgacÄ± Node-Left-Right ÅŸeklinde yazdÄ±rmayÄ± saÄŸlar.
 	if(root==NULL)return;
 	printf("%d ",root->deger);
 	preTraverse(root->left);
@@ -70,7 +70,7 @@ void preTraverse(Node *root){				//Agacı Node-Left-Right şeklinde yazdırmayı sağ
 	
 }
 
-void inTraverse(Node *root){				//Agacı Left-Node-Right şeklinde yazdırmayı sağlar.
+void inTraverse(Node *root){				//AgacÄ± Left-Node-Right ÅŸeklinde yazdÄ±rmayÄ± saÄŸlar.
 	if(root==NULL)return;
 	inTraverse(root->left);
 	printf("%d ",root->deger);
