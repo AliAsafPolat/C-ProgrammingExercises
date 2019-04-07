@@ -9,16 +9,16 @@ typedef enum {false,true
 boolean bruteForce(char text[],int textlen,char pat[],int patlen){
 	int i,j;
 	
-	for(i=0,j=0;i<textlen&&j<patlen;i++){	//Uzunluklardan küçük olduklarý müddetçe devam et.
+	for(i=0,j=0;i<textlen&&j<patlen;i++){				//Uzunluklardan kÃ¼Ã§Ã¼k olduklarÄ± mÃ¼ddetÃ§e devam et.
 		
-		if(pat[j]==text[i])					//Eþitse j yi artýr ve kontrol etmeye devam et.
+		if(pat[j]==text[i])					//EÅŸitse j yi artÄ±r ve kontrol etmeye devam et.
 		j++;
 		else{
-		i=i-j;								//Eðer eþitlik durumu bozulduysa i yi bulunan j miktarlarý kadar azalt ve j yi sýfýrla
-		j=0;								//mesela asafali içinden ali arýyoruz ilk a lar eþleþti j=1 olcak ama s ile l eþleþmedi i=1-1 =0 olcak 
-		}									//fakat for döngüsü satýrýna dönünce i  artýrýlcak ve i= deðerini almýþ olcak ver safali içinden aramaya devam
-	}										//edeceðiz.
-	if(j==patlen)							//Eðer j pattern uzunluðuna eþitse bulmuþum demektir.
+		i=i-j;							//EÄŸer eÅŸitlik durumu bozulduysa i yi bulunan j miktarlarÄ± kadar azalt ve j yi sÄ±fÄ±rla
+		j=0;							//mesela asafali iÃ§inden ali arÄ±yoruz ilk a lar eÅŸleÅŸti j=1 olcak ama s ile l eÅŸleÅŸmedi i=1-1 =0 olcak 
+		}							//fakat for dÃ¶ngÃ¼sÃ¼ satÄ±rÄ±na dÃ¶nÃ¼nce i  artÄ±rÄ±lcak ve i= deÄŸerini almÄ±ÅŸ olcak ver safali iÃ§inden aramaya devam
+	}								//edeceÄŸiz.
+	if(j==patlen)							//EÄŸer j pattern uzunluÄŸuna eÅŸitse bulmuÅŸum demektir.
 	return true;
 	else
 	return false;
