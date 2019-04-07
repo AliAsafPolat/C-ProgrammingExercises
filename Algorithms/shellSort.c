@@ -5,17 +5,17 @@ void shellSort(int dizi[],int boyut){
 	int i,j,tmp;
 	int h=1;
 	while(h<boyut/2)
-	h=h*2+1;												//Burada başlangıç için bir genişlik üretiyoruz tamamen opsiyonel
+	h=h*2+1;								//Burada baÅŸlangÄ±Ã§ iÃ§in bir geniÅŸlik Ã¼retiyoruz tamamen opsiyonel
 	
-	while(h>=1){											//Genişliğim 1 olduğunda insertion sorta geçmiş olacağım.
-		for(i=h;i<boyut;i++){								//Bakıldığında bubble sort gibi görülebilir fakat sadece yanındakiyle karşılaştırıp bırakmıyor.
-			for(j=i;j>=0&&dizi[j]<dizi[j-h];j=j-h){			//Yanındakinden küçüksen yer değiştiriyorsun sonra tekrar yanındakine bakıyorsun ta ki solundakinden
-			tmp=dizi[j];									//büyük olana kadar.
-			dizi[j]=dizi[j-h];								//Eğer verilen genişlik değeri kadar uzaklığındaki elemandan küçüksen yer değiştirme işlemi
-			dizi[j-h]=tmp;									//gerçekleşir.
+	while(h>=1){								//GeniÅŸliÄŸim 1 olduÄŸunda insertion sorta geÃ§miÅŸ olacaÄŸÄ±m.
+		for(i=h;i<boyut;i++){						//BakÄ±ldÄ±ÄŸÄ±nda bubble sort gibi gÃ¶rÃ¼lebilir fakat sadece yanÄ±ndakiyle karÅŸÄ±laÅŸtÄ±rÄ±p bÄ±rakmÄ±yor.
+			for(j=i;j>=0&&dizi[j]<dizi[j-h];j=j-h){			//YanÄ±ndakinden kÃ¼Ã§Ã¼ksen yer deÄŸiÅŸtiriyorsun sonra tekrar yanÄ±ndakine bakÄ±yorsun ta ki solundakinden
+			tmp=dizi[j];						//bÃ¼yÃ¼k olana kadar.
+			dizi[j]=dizi[j-h];					//EÄŸer verilen geniÅŸlik deÄŸeri kadar uzaklÄ±ÄŸÄ±ndaki elemandan kÃ¼Ã§Ã¼ksen yer deÄŸiÅŸtirme iÅŸlemi
+			dizi[j-h]=tmp;						//gerÃ§ekleÅŸir.
 			}
 		}
-		h=h/2;												//Genişliğimi her turdan sonra değiştiriyorum.
+		h=h/2;								//GeniÅŸliÄŸimi her turdan sonra deÄŸiÅŸtiriyorum.
 	}
 	
 }
