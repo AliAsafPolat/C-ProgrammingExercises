@@ -7,12 +7,12 @@ typedef enum{false,true
 
 boolean bruteForce(char text[],int textlen,char pat[],int patlen){
 	int i,j;
-	for(i=0;i<=textlen-patlen;i++){			//Textin bakacaðým son kýsmý patternin uzunluðunu kadar gerisi olacaktýr.
+	for(i=0;i<=textlen-patlen;i++){			//Textin bakacaÄŸÄ±m son kÄ±smÄ± patternin uzunluÄŸunu kadar gerisi olacaktÄ±r.
 		j=0;
-		while(j<patlen&&pat[j]==text[i+j]){	//Burada j ve patlen arasýnda eþitlik durumu olmamalý çünkü döngü içerisinde artýrým oluyor.
-			j++;							//Ayný geldikçe j yi artýrýyorum.
+		while(j<patlen&&pat[j]==text[i+j]){	//Burada j ve patlen arasÄ±nda eÅŸitlik durumu olmamalÄ± Ã§Ã¼nkÃ¼ dÃ¶ngÃ¼ iÃ§erisinde artÄ±rÄ±m oluyor.
+			j++;				//AynÄ± geldikÃ§e j yi artÄ±rÄ±yorum.
 		}
-		if(j==patlen)						//Eðer uzunluklar aynýysa bulmuþum demektir.
+		if(j==patlen)				//EÄŸer uzunluklar aynÄ±ysa bulmuÅŸum demektir.
 		return true;
 		
 	}
