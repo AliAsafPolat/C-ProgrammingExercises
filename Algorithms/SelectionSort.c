@@ -1,11 +1,11 @@
 #include<stdio.h>
 
-//**SELECT›ON SORT**
+//**SELECT√ùON SORT**
 
 void selectionSort(int dizi[],int boyut){
 	int i,j,minidx,tmp;
 	for(i=0;i<boyut-1;i++){
-		minidx=i;							//En ba˛tan ba˛layarak min elemanlar˝ bulup getiriyor.
+		minidx=i;							//En bastan baslayarak min elemanlari bulup getiriyor.
 		for(j=i+1;j<=boyut-1;j++){
 		if(dizi[j]<dizi[minidx])
 		minidx=j;	
