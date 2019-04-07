@@ -2,37 +2,37 @@
 #include<string.h>
 #include<stdlib.h>
 
-//**Boyer Moore Algoritması **
+//**Boyer Moore AlgoritmasÄ± **
 #define CHARALP 256
 #define BOYUT 50
-int* buildBadMatchTable(char pat[],int patlen,int alphsize){	//Burası tabloyu oluşturma kısmıdır.
+int* buildBadMatchTable(char pat[],int patlen,int alphsize){			//BurasÄ± tabloyu oluÅŸturma kÄ±smÄ±dÄ±r.
 int *alp;						
-alp=(int *)malloc(alphsize*sizeof(int));						//Tabloya yer açıldı.
+alp=(int *)malloc(alphsize*sizeof(int));					//Tabloya yer aÃ§Ä±ldÄ±.
 		
 int i;
-for(i = 0;i<alphsize-1;i++){									//Önce alfabenin bütün elamanlarına patternin uzunluğu girilmelidir
-alp[i]=patlen;													//çünkü alfabeden olmayan bir harf geldiği zaman patternin uzunluğu kadar bir zıplama yapacaktır.
+for(i = 0;i<alphsize-1;i++){							//Ã–nce alfabenin bÃ¼tÃ¼n elamanlarÄ±na patternin uzunluÄŸu girilmelidir
+alp[i]=patlen;									//Ã§Ã¼nkÃ¼ alfabeden olmayan bir harf geldiÄŸi zaman patternin uzunluÄŸu kadar bir zÄ±plama yapacaktÄ±r.
 }
 
 for(i=0;i<patlen-1;i++){
-	alp[pat[i]-'a']=patlen-1-i;									//Burada patlen-1-i nin anlamı şudur ki eğer aynı harften iki tane geçiyor ise pattern de
-}																//ikinci gelenin i değeri daha büyük olacağı için önceden gelen değerin üzerine yazılır.
-return alp;														//Oluşturduğum tabloyu geri döndürüyorum.
+	alp[pat[i]-'a']=patlen-1-i;						//Burada patlen-1-i nin anlamÄ± ÅŸudur ki eÄŸer aynÄ± harften iki tane geÃ§iyor ise pattern de
+}										//ikinci gelenin i deÄŸeri daha bÃ¼yÃ¼k olacaÄŸÄ± iÃ§in Ã¶nceden gelen deÄŸerin Ã¼zerine yazÄ±lÄ±r.
+return alp;									//OluÅŸturduÄŸum tabloyu geri dÃ¶ndÃ¼rÃ¼yorum.
 }
 
 int horspool(char text[],int textlen,char pat[],int patlen,int alphsize){
 	int i,j;
-	int *table=buildBadMatchTable(pat,patlen,alphsize);			//Fonksiyonumdan tabloyu alıyorum.
+	int *table=buildBadMatchTable(pat,patlen,alphsize);			//Fonksiyonumdan tabloyu alÄ±yorum.
 	
-	i=patlen-1;													//i burada kaydırma durumunu tutan değişken olarak görev alır.
-	while(i<textlen){											//Eğer text in uzunluğuna gelmişsek artık durması gerekli.
-		j=0;													//j burada eşleşme durumlarını tutmaktadır.
-		while(j<=patlen&&pat[patlen-1-j]==text[i-j])			//Bilindiği üzere bu algoritmada kelime asaf ise önce f harfi karşılaştırılır
-		j++;													//Eşleşme gözlenirse a harfine geçilir.
-		if(j==patlen){											//pat[patlen-1-j]==text[i-j] bu yazımın mantığı da budur önce patternin son harfi kontrol edilir.
-		return i-patlen+1;										//Eğer eşleşme var ise patternin geçtiği yeri döndür.
+	i=patlen-1;								//i burada kaydÄ±rma durumunu tutan deÄŸiÅŸken olarak gÃ¶rev alÄ±r.
+	while(i<textlen){							//EÄŸer text in uzunluÄŸuna gelmiÅŸsek artÄ±k durmasÄ± gerekli.
+		j=0;								//j burada eÅŸleÅŸme durumlarÄ±nÄ± tutmaktadÄ±r.
+		while(j<=patlen&&pat[patlen-1-j]==text[i-j])			//BilindiÄŸi Ã¼zere bu algoritmada kelime asaf ise Ã¶nce f harfi karÅŸÄ±laÅŸtÄ±rÄ±lÄ±r
+		j++;								//EÅŸleÅŸme gÃ¶zlenirse a harfine geÃ§ilir.
+		if(j==patlen){							//pat[patlen-1-j]==text[i-j] bu yazÄ±mÄ±n mantÄ±ÄŸÄ± da budur Ã¶nce patternin son harfi kontrol edilir.
+		return i-patlen+1;						//EÄŸer eÅŸleÅŸme var ise patternin geÃ§tiÄŸi yeri dÃ¶ndÃ¼r.
 		}else
-		i=i+table[text[i]-'a'];									//Eşleşme yoksa text deki i nin tablodaki kaydırma miktarı kadar kaydırma sağlanır.
+		i=i+table[text[i]-'a'];						//EÅŸleÅŸme yoksa text deki i nin tablodaki kaydÄ±rma miktarÄ± kadar kaydÄ±rma saÄŸlanÄ±r.
 	}
 	return -1;
 }
