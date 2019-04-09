@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-//Soru binary tree de bir yerde hata yapýlmýþ onu bulma sorusu.
+//Soru Binary Tree de bir yerde hata yapÄ±lmÄ±ÅŸ onu bulma sorusu.
 
 typedef struct node{
 	int deger;
@@ -10,30 +10,30 @@ typedef struct node{
 
 
 Node* dugumOlustur(int veri){
-	Node *dugum;							//Yeni düðüm oluþtur.
+	Node *dugum;							//Yeni dÃ¼gÃ¼m olustur.
 	dugum=(struct node*)malloc(sizeof(struct node));
 	dugum->deger=veri;						//Girilen veriyi ata.
-	dugum->left=NULL;						//Kollarý sýfýrla.
+	dugum->left=NULL;						//Kollari sÄ±fÄ±rla.
 	dugum->right=NULL;
-	return dugum;							//Oluþturduðun düðümü döndür.
+	return dugum;							//Olusturdugun dÃ¼gÃ¼mÃ¼ dÃ¶ndÃ¼r.
 }
 
 int binaryHata(Node *head){					
-	int ret;									//Hatanýn bulunduðu yeri döndürüyorum.
-	int static flag=0;							//Hata bulunduysa flag=1 yapýp çýkýyorum.
-	if(head==NULL)								//Eðer rootum null sa dön. Recursive bitiþ kontrolüm budur.
+	int ret;							//HatanÄ±n bulundugu yeri dÃ¶ndÃ¼rÃ¼yorum.
+	int static flag=0;						//Hata bulunduysa flag=1 yapÄ±p Ã§Ä±kÄ±yorum.
+	if(head==NULL)							//Eger rootum null sa dÃ¶n. Recursive bitiÅŸ kontrolÃ¼m budur.
 	return;
 	else{
-	 if(head->left!=NULL){						//Eðer sol ayaðým boþ deðilse kontrol et
-		if(head->left->deger>head->deger){		//Soldaki deðerim saðdaki deðerimden büyük mü?
-		flag=1;									//Büyükse flag=1
-		return head->deger;}					//Hatalý deðeri döndür
+	 if(head->left!=NULL){						//Eger sol ayagÄ±m bos degilse kontrol et
+		if(head->left->deger>head->deger){			//Soldaki deÄŸerim saÄŸdaki deÄŸerimden bÃ¼yÃ¼k mÃ¼?
+		flag=1;							//BÃ¼yÃ¼kse flag=1
+		return head->deger;}					//HatalÄ± deÄŸeri dÃ¶ndÃ¼r
 		else
-		ret=binaryHata(head->left);				//Büyük deðilse node un sol ayaðýný tekrar bu fonksiyone yolla ve onun çocuklarýna bak.
+		ret=binaryHata(head->left);				//BÃ¼yÃ¼k deÄŸilse node un sol ayaÄŸÄ±nÄ± tekrar bu fonksiyone yolla ve onun Ã§ocuklarÄ±na bak.
 	}
-	 if(flag==0&&head->right!=NULL){			//Flag kontrolünü burada yapmamýn sebebi aðacýn sol tarafýna daha önce bakýldýðý için 
-		if(head->right->deger<head->deger){		//orada bulunan ret deðeri burada bozulabiliyor fakat buradan sonra baþka kod parçasý olmadýðýndan
-		flag=1;									//left kýsmý buradaki veriyi bozamýyor.
+	 if(flag==0&&head->right!=NULL){				//Flag kontrolÃ¼nÃ¼ burada yapmamÄ±n sebebi aÄŸacÄ±n sol tarafÄ±na daha Ã¶nce bakÄ±ldÄ±ÄŸÄ± iÃ§in 
+		if(head->right->deger<head->deger){			//orada bulunan ret deÄŸeri burada bozulabiliyor fakat buradan sonra baÃ¾ka kod parÃ§asÄ± olmadÃ½Ã°Ã½ndan
+		flag=1;							//left kÄ±smÄ± buradaki veriyi bozamÄ±yor.
 		return head->deger;
 		}else
 		ret=binaryHata(head->right);
