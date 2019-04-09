@@ -1,4 +1,6 @@
 #include<stdio.h>
+#include<stdlib.h>
+#include<dos.h>
 #define MAX 5
 typedef enum {false,true} boolean;
 int front=-1;
@@ -7,55 +9,56 @@ int size=-1;
 
 
 void menu(){
-	printf("Yapmak istediginiz islemi seciniz : \n1-Ekle\n2-Cikar\n");
-
+	system("CLS");
+	printf("\n\n********************************************************\nYapmak istediginiz islemi seciniz : \n1-Ekle\n2-Cikar\n\n********************************************************\n");
+	
 }
 
-boolean isEmpty(){
-	if (size==-1)
+boolean isEmpty(){					//Eğer size -1 ise dizim şuan boş demektir
+	if (size==-1)		
 	return true;
 	else return false;
 	
 }
 
-boolean isFull(){
+boolean isFull(){					//Eğer size max belirlediğim alana ulaşmışsa fulldür.
 	if(size==MAX)
 	return true;
 	else return false;
 }
 
 void diziEkle(int dizi[],int val){
-	if(!isFull()){
-	if(size<0){
-		dizi[0]=val;
-		front=rear=0;
-		size=1;
-	}else if(rear+1==MAX){
-		rear=0;
-		dizi[0]=val;
-		size++;
+	if(!isFull()){					//Eğer maximum alana ulaşılmamışsa üç seçenek vardır.
+	if(size<0){					//Birincisi dizi tamamen boş olabilir.
+		dizi[0]=val;				//Dizi tamamen boş ise ilk değeri ata
+		front=rear=0;				//Baş ve son aynı yeri göstersin.
+		size=1;						
+	}else if(rear+1==MAX){				//İkinci bir durum ise kuyruk kısmı sonra ulaşmış demektir bu dizinin dolduğu anlamına gelmez.
+		rear=0;					//Zaten yukarıda maximuma ulaşılmış mı kontrolü yapılmıştı.
+		dizi[0]=val;				//Öyleyse tekrar gel başa ata.
+		size++;					//Boyutu yine artır.
 	}else{
-		rear++;
-		dizi[rear]=val;
-		size++;
+		rear++;					//Üçüncü durum ise eğer dizi boş değil ve maximum kapasiteye ulaşılmamışsa
+		dizi[rear]=val;				//demek ki her şey seyirinde gidiyor eklemeyi yap.Rear kısmını bir arttır boyutu bir arttır.
+		size++;					//ve sıradaki yere değeri yaz.
 	}
 	
 }else
-		printf("Dizi suan doludur.\n");
+		printf("Dizi suan doludur.\n");		//Eğer isFull den true dönerse demek ki doludur.
 
 }
 
 int diziSil(int dizi[]){
 	int ret;
-	if(isEmpty()){
-		printf("Dizi suanda bostur.\n");
+	if(isEmpty()){					//Silerken ise isEmpty ile boş mu kontrolü yapılıyor.
+		printf("Dizi suanda bostur.\n");	//Boş ise hata mesajı ver.
 		return;
-	}else{
-		ret=dizi[front];
+	}else{						//Silme işlemleri hatırlarsak front üzerinden yapılıyordu.
+		ret=dizi[front];			//Öndeki değeri alıyoruz ve ön değerimizi bir artırıyoruz.
 		front++;
 		
-		if(front==MAX)
-		front=0;
+		if(front==MAX)				//Oluşabilecek durumlardan birisi de front umuzun maximum kapasiteye ulaşmış olması.
+		front=0;				//Eğer front maximuma ulaşmış ise tekrar başa alıyoruz ve boyutu bir azaltıyoruz.
 		size--;
 		return ret;
 	}
@@ -67,13 +70,26 @@ int diziSil(int dizi[]){
 
 void kuyrukYazdir(int dizi[]){
 	int i;
+	printf("\n********************************************************\nKuyrugun durumu : \n");
+	if(size>0){
 	
-	if(size!=-1){
+	if(rear<front){					//Kuyruk yazdırmada oluşacak hatalardan biri rear ın yani kuyruk kısmının baştan büyük olması.
+		for(i=front;i<MAX;i++){			//Böyle bir durum var ise frontdan dizinin sonuna kadar yazdır sonrasında dizinin başından itibaren 
+		printf("%d ",dizi[i]);			//rear a kadar yazdır.
+	}
+	for(i=0;i<=rear;i++){
+		printf("%d ",dizi[i]);
+}
+	printf("\n********************************************************\n");
+	}else{
 	
-	for(i=front;i<=rear;i++){
+	for(i=front;i<=rear;i++){			//Eğer rear normal şekilde fronttan büyük ise front dan rear a kadar yazdırmak yeterli olacaktır.
 		printf("%d ",dizi[i]);
 	}
-	printf("\n\n");}
+	printf("\n********************************************************\n");}
+	}
+		
+	
 	else{printf("Dizi suanda bos agacim\n");
 	}
 }
@@ -91,18 +107,17 @@ switch(islem){
 		printf("Kuyruga eklemek istediginiz elemani giriniz.");
 		scanf("%d",&ekle);
 		diziEkle(dizi,ekle);
-		printf("Kuyrugun durumu : \n");
 		kuyrukYazdir(dizi);
 		break;
 	case 2:
 		al=diziSil(dizi);
 		printf("Alinan eleman : %d",al);
-		printf("\nKuyrugun durumu : \n");
 		kuyrukYazdir(dizi);
 		break;
 	default:
 		printf("Hatali secim");		
 }
+sleep(2);
 }
 
 	
