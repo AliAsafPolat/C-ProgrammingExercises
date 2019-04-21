@@ -4,9 +4,9 @@
 #define BOYUT 25
 typedef enum { false, true } bool;
 
-static int sayilar[BOYUT];						//Sayiları tutacağım yığın.
-static char isaretler[BOYUT];					//İşaretleri tutacağım yığın.
-static int isaretler_indis=-1,sayilar_indis=-1;	//İndisleri -1 den başlatıyorum.
+static int sayilar[BOYUT];						//SayilarÄ± tutacaÄŸÄ±m yÄ±ÄŸÄ±n.
+static char isaretler[BOYUT];						//Ä°ÅŸaretleri tutacaÄŸÄ±m yÄ±ÄŸÄ±n.
+static int isaretler_indis=-1,sayilar_indis=-1;				//Ä°ndisleri -1 den baÅŸlatÄ±yorum.
 	
 
 bool isSayiEmpty(){
@@ -18,7 +18,7 @@ bool isSayiEmpty(){
 //******************************************************************
 
 bool isSayiFull(){
-	if(sayilar_indis==BOYUT-1){			//Eger yigin max kapasiteye ulaşmışsa bir uyarı mesajı yollanacak.
+	if(sayilar_indis==BOYUT-1){			//Eger yigin max kapasiteye ulaÅŸmÄ±ÅŸsa bir uyarÄ± mesajÄ± yollanacak.
 		return true;
 	}
 	return false;
@@ -34,7 +34,7 @@ bool isIsaretEmpty(){
 //******************************************************************
 
 bool isIsaretFull(){
-	if(isaretler_indis==BOYUT-1){			//Eger yigin max kapasiteye ulaşmışsa bir uyarı mesajı yollanacak.
+	if(isaretler_indis==BOYUT-1){			//Eger yigin max kapasiteye ulaÅŸmÄ±ÅŸsa bir uyarÄ± mesajÄ± yollanacak.
 		return true;
 	}
 	return false;
@@ -53,7 +53,7 @@ void pushSayi(int a){
 }
 //******************************************************************
 
-int popSayi(){							//Eger yigin suanda boş ise bir uyarı mesajı yollanacak.
+int popSayi(){							//Eger yigin suanda boÅŸ ise bir uyarÄ± mesajÄ± yollanacak.
 	int sayi;
 	if(isSayiEmpty()){
 		printf("Yigin suan bostur!");
@@ -67,8 +67,8 @@ int popSayi(){							//Eger yigin suanda boş ise bir uyarı mesajı yollanacak.
 //******************************************************************
 
 void pushIsaret(char ch){
-	if(isIsaretFull()){			//Eger yigin max kapasiteye ulaşmışsa bir uyarı mesajı yollanacak.
-		printf("Yigin max kapasiteye ulasti yükleme yapilamiyor!");
+	if(isIsaretFull()){				//Eger yigin max kapasiteye ulaÅŸmÄ±ÅŸsa bir uyarÄ± mesajÄ± yollanacak.
+		printf("Yigin max kapasiteye ulasti yÃ¼kleme yapilamiyor!");
 		return;
 	}
 	isaretler_indis++;
@@ -79,7 +79,7 @@ void pushIsaret(char ch){
 //******************************************************************
 char popIsaret(){
 	char isaret;
-	if(isIsaretEmpty()){				//Eger yigin suanda boş ise bir uyarı mesajı yollanacak.
+	if(isIsaretEmpty()){				//Eger yigin suanda boÅŸ ise bir uyarÄ± mesajÄ± yollanacak.
 		printf("Yigin suan bostur!");
 		return ;
 	}
@@ -115,16 +115,16 @@ void isaretStackYazdir(){
 //******************************************************************
 int main(){
 	
-	char islem[BOYUT],buff[5];		//buff stringten int değer dönüşümünde kullanılacaktır.
-	int islem_length;				//Girilen işlemin string olarak uzunluğunu hesaplamak için kullanılacaktır.
-	int i,sayi;						//i : döngü değişkeni, sayi Stringten int değerine dönüşümde int değerini tutan değişken olarak kullanılacak.
-	char isaret;					//Yığından çekilen işareti tutmak için kullanılacak değişken
-	int sayi1,sayi2;				//Yığın çekilecek 2 sayıyı tutmak için kullanılacak değişkenler.
-	int sonuc;						//Çekilen 2 sayının işlemleri sonucu oluşacak sayıyı tutmak için kullanılacak değişken.
+	char islem[BOYUT],buff[5];			//buff stringten int deÄŸer dÃ¶nÃ¼ÅŸÃ¼mÃ¼nde kullanÄ±lacaktÄ±r.
+	int islem_length;				//Girilen iÅŸlemin string olarak uzunluÄŸunu hesaplamak iÃ§in kullanÄ±lacaktÄ±r.
+	int i,sayi;					//i : dÃ¶ngÃ¼ deÄŸiÅŸkeni, sayi Stringten int deÄŸerine dÃ¶nÃ¼ÅŸÃ¼mde int deÄŸerini tutan deÄŸiÅŸken olarak kullanÄ±lacak.
+	char isaret;					//YÄ±ÄŸÄ±ndan Ã§ekilen iÅŸareti tutmak iÃ§in kullanÄ±lacak deÄŸiÅŸken
+	int sayi1,sayi2;				//YÄ±ÄŸÄ±n Ã§ekilecek 2 sayÄ±yÄ± tutmak iÃ§in kullanÄ±lacak deÄŸiÅŸkenler.
+	int sonuc;					//Ã‡ekilen 2 sayÄ±nÄ±n iÅŸlemleri sonucu oluÅŸacak sayÄ±yÄ± tutmak iÃ§in kullanÄ±lacak deÄŸiÅŸken.
 	
 	printf("Islemi giriniz : ");
 	scanf("%s",islem);
-	islem_length=strlen(islem);		//İşlemin uzunluğu alındı.
+	islem_length=strlen(islem);			//Ä°ÅŸlemin uzunluÄŸu alÄ±ndÄ±.
 	
 	for(i=0;i<islem_length;i++){
 	
@@ -132,262 +132,262 @@ int main(){
 			int j=0;
 			buff[j]=islem[i];
 			j++;
-			while(islem[i+1]>=48&&islem[i+1]<=57){  //İşlemde verilen sayının bir basamaklıdan daha fazla basamaklı olup olmadığının kontrolü.
+			while(islem[i+1]>=48&&islem[i+1]<=57){  //Ä°ÅŸlemde verilen sayÄ±nÄ±n bir basamaklÄ±dan daha fazla basamaklÄ± olup olmadÄ±ÄŸÄ±nÄ±n kontrolÃ¼.
 			buff[j]=islem[i+1];
 			i++;
 			j++;
 		}
-		sayi=atoi(buff);			// Aldığım string değerini integer değere çeviriyorum
-		pushSayi(sayi);				//Çevirilen integer değerini sayi stackine atıyorum.
-		memset(buff, 0, 5);			//Buffer olarak kullandığım değeri içinde değer kalmasın diye sıfırlıyorum.
-		sayiStackYazdir();			//Yazdırma işlemleri.
+		sayi=atoi(buff);			// AldÄ±ÄŸÄ±m string deÄŸerini integer deÄŸere Ã§eviriyorum
+		pushSayi(sayi);				//Ã‡evirilen integer deÄŸerini sayi stackine atÄ±yorum.
+		memset(buff, 0, 5);			//Buffer olarak kullandÄ±ÄŸÄ±m deÄŸeri iÃ§inde deÄŸer kalmasÄ±n diye sÄ±fÄ±rlÄ±yorum.
+		sayiStackYazdir();			//YazdÄ±rma iÅŸlemleri.
 		isaretStackYazdir();	
 		
 				
 	}else if(islem[i]=='('){
-		pushIsaret(islem[i]);		//'(' gelirse direkt yığına atılıyor.
-		sayiStackYazdir();			//Yazdirma işlemleri.
+		pushIsaret(islem[i]);			//'(' gelirse direkt yÄ±ÄŸÄ±na atÄ±lÄ±yor.
+		sayiStackYazdir();			//Yazdirma iÅŸlemleri.
 		isaretStackYazdir();	
 		
 	}else if(islem[i]=='*'){
-		if(peekIsaret()=='*'||peekIsaret()=='/'){	//Çarpma işleminde yığın içindeki eşit öncelikli terimlere bakılıyor.
-			isaret=popIsaret();		//Eşit öncelikli ise işaret yığından çekiliyor .		
+		if(peekIsaret()=='*'||peekIsaret()=='/'){//Ã‡arpma iÅŸleminde yÄ±ÄŸÄ±n iÃ§indeki eÅŸit Ã¶ncelikli terimlere bakÄ±lÄ±yor.
+			isaret=popIsaret();		//EÅŸit Ã¶ncelikli ise iÅŸaret yÄ±ÄŸÄ±ndan Ã§ekiliyor .		
 			if(isaret=='*'){			
-			sayi1=popSayi();		//İşaret '*' ise yığından terimler çekiliyor.
+			sayi1=popSayi();		//Ä°ÅŸaret '*' ise yÄ±ÄŸÄ±ndan terimler Ã§ekiliyor.
 			sayi2=popSayi();
-			sonuc=sayi1*sayi2;		//İşlem sonucu tekrardan yığına atılıyor.
+			sonuc=sayi1*sayi2;		//Ä°ÅŸlem sonucu tekrardan yÄ±ÄŸÄ±na atÄ±lÄ±yor.
 			pushSayi(sonuc);
-			pushIsaret('*');		//Eşit öncelikli işlem yapıldıktan sonra gelen işaretim yığına atılıyor.
+			pushIsaret('*');		//EÅŸit Ã¶ncelikli iÅŸlem yapÄ±ldÄ±ktan sonra gelen iÅŸaretim yÄ±ÄŸÄ±na atÄ±lÄ±yor.
 			
-			}else {				//Gelen işaret '*' değilse '/' dir.
-			sayi2=popSayi();	//Yığına son giren bölen, ilk giren bölünün olur o sebepten ilk bölen çekildi.
+			}else {				//Gelen iÅŸaret '*' deÄŸilse '/' dir.
+			sayi2=popSayi();		//YÄ±ÄŸÄ±na son giren bÃ¶len, ilk giren bÃ¶lÃ¼nÃ¼n olur o sebepten ilk bÃ¶len Ã§ekildi.
 			sayi1=popSayi();
 			sonuc=sayi1/sayi2;
-			pushSayi(sonuc);	//İşlem sonucu tekrardan Sayı Yığınına atıldı.
-			pushIsaret('*');	//Eşit öncelikli işlem yapıldıktan sonra gelen işaretim yığına atılıyor.
+			pushSayi(sonuc);		//Ä°ÅŸlem sonucu tekrardan SayÄ± YÄ±ÄŸÄ±nÄ±na atÄ±ldÄ±.
+			pushIsaret('*');		//EÅŸit Ã¶ncelikli iÅŸlem yapÄ±ldÄ±ktan sonra gelen iÅŸaretim yÄ±ÄŸÄ±na atÄ±lÄ±yor.
 			
-			sayiStackYazdir();	//Yazdırma işlemleri.
+			sayiStackYazdir();		//YazdÄ±rma iÅŸlemleri.
 			isaretStackYazdir();
 			
 			}
 		}else if(peekIsaret()=='('){
-			pushIsaret('*');		//Yığındaki işaret '(' ise işaret direkt yığına yerleştirilir.
-		sayiStackYazdir();			//Yazdırma işlemleri.
+			pushIsaret('*');		//YÄ±ÄŸÄ±ndaki iÅŸaret '(' ise iÅŸaret direkt yÄ±ÄŸÄ±na yerleÅŸtirilir.
+		sayiStackYazdir();			//YazdÄ±rma iÅŸlemleri.
 		isaretStackYazdir();
 		
 		}else{
-			pushIsaret('*');		//Çarpma işlemi işaret yığınına atıldı.	
-		sayiStackYazdir();			//Yazdırma işlemleri.
+			pushIsaret('*');		//Ã‡arpma iÅŸlemi iÅŸaret yÄ±ÄŸÄ±nÄ±na atÄ±ldÄ±.	
+		sayiStackYazdir();			//YazdÄ±rma iÅŸlemleri.
 		isaretStackYazdir();
 		}
 
-	}else if(islem[i]=='/'){//*************GELEN İŞLEM '/' İSE *******************
-		if(peekIsaret()=='*'||peekIsaret()=='/'){	//Bölme işleminde yığın içindeki eşit öncelikli terimlere bakılıyor.
-			isaret=popIsaret();		//Eşit öncelikli ise işaret yığından çekiliyor .		
+	}else if(islem[i]=='/'){//*************GELEN Ä°ÅLEM '/' Ä°SE *******************
+		if(peekIsaret()=='*'||peekIsaret()=='/'){//BÃ¶lme iÅŸleminde yÄ±ÄŸÄ±n iÃ§indeki eÅŸit Ã¶ncelikli terimlere bakÄ±lÄ±yor.
+			isaret=popIsaret();		//EÅŸit Ã¶ncelikli ise iÅŸaret yÄ±ÄŸÄ±ndan Ã§ekiliyor .		
 			if(isaret=='*'){			
-			sayi1=popSayi();		//İşaret '*' ise yığından terimler çekiliyor.
+			sayi1=popSayi();		//Ä°ÅŸaret '*' ise yÄ±ÄŸÄ±ndan terimler Ã§ekiliyor.
 			sayi2=popSayi();
-			sonuc=sayi1*sayi2;		//İşlem sonucu tekrardan yığına atılıyor.
+			sonuc=sayi1*sayi2;		//Ä°ÅŸlem sonucu tekrardan yÄ±ÄŸÄ±na atÄ±lÄ±yor.
 			pushSayi(sonuc);
-			pushIsaret('/');		//Eşit öncelikli işlem yapıldıktan sonra gelen işaretim yığına atılıyor.
-			sayiStackYazdir();		//Yazdırma işlemleri.
+			pushIsaret('/');		//EÅŸit Ã¶ncelikli iÅŸlem yapÄ±ldÄ±ktan sonra gelen iÅŸaretim yÄ±ÄŸÄ±na atÄ±lÄ±yor.
+			sayiStackYazdir();		//YazdÄ±rma iÅŸlemleri.
 			isaretStackYazdir();	
-			}else {				//Gelen işaret '*' değilse '/' dir.
-			sayi2=popSayi();	//Yığına son giren bölen ilk giren bölünün olur o sebepten ilk bölen çekildi.
+			}else {				//Gelen iÅŸaret '*' deÄŸilse '/' dir.
+			sayi2=popSayi();		//YÄ±ÄŸÄ±na son giren bÃ¶len ilk giren bÃ¶lÃ¼nÃ¼n olur o sebepten ilk bÃ¶len Ã§ekildi.
 			sayi1=popSayi();
 			sonuc=sayi1/sayi2;
-			pushSayi(sonuc);	//İşlem sonucu tekrardan Sayı Yığınına atıldı.
-			pushIsaret('/');	//Eşit öncelikli işlem yapıldıktan sonra gelen işaretim yığına atılıyor.
-			sayiStackYazdir();	//Yazdırma işlemleri
+			pushSayi(sonuc);		//Ä°ÅŸlem sonucu tekrardan SayÄ± YÄ±ÄŸÄ±nÄ±na atÄ±ldÄ±.
+			pushIsaret('/');		//EÅŸit Ã¶ncelikli iÅŸlem yapÄ±ldÄ±ktan sonra gelen iÅŸaretim yÄ±ÄŸÄ±na atÄ±lÄ±yor.
+			sayiStackYazdir();		//YazdÄ±rma iÅŸlemleri
 			isaretStackYazdir();
 			}
 		}else if(peekIsaret()=='('){
-			pushIsaret('/');	//Yığındaki işaret '(' ise doğrudan yığına atıyorum.	
-			sayiStackYazdir();	//Yazdırma işlemleri.
+			pushIsaret('/');		//YÄ±ÄŸÄ±ndaki iÅŸaret '(' ise doÄŸrudan yÄ±ÄŸÄ±na atÄ±yorum.	
+			sayiStackYazdir();		//YazdÄ±rma iÅŸlemleri.
 		    isaretStackYazdir();
 		}else{
 		
-		pushIsaret('/');		//Bölme işlemi işaret yığınına atıldı.
-		sayiStackYazdir();		//Yazdırma işlemleri. 
+		pushIsaret('/');			//BÃ¶lme iÅŸlemi iÅŸaret yÄ±ÄŸÄ±nÄ±na atÄ±ldÄ±.
+		sayiStackYazdir();			//YazdÄ±rma iÅŸlemleri. 
 		isaretStackYazdir();
 	}
-	} else if(islem[i]=='+'){	//************************GELEN İŞLEM '+' İSE********************************
-		if(peekIsaret()=='*'||peekIsaret()=='/'){//Toplama işleminde yığın içindeki eşit ve öncelikli terimlere bakılıyor.
-			isaret=popIsaret();		//Öncelikli ise işaret yığından çekiliyor .		
+	} else if(islem[i]=='+'){	//************************GELEN Ä°ÅLEM '+' Ä°SE********************************
+		if(peekIsaret()=='*'||peekIsaret()=='/'){//Toplama iÅŸleminde yÄ±ÄŸÄ±n iÃ§indeki eÅŸit ve Ã¶ncelikli terimlere bakÄ±lÄ±yor.
+			isaret=popIsaret();		//Ã–ncelikli ise iÅŸaret yÄ±ÄŸÄ±ndan Ã§ekiliyor .		
 			if(isaret=='*'){			
-			sayi1=popSayi();		//İşaret '*' ise yığından terimler çekiliyor.
+			sayi1=popSayi();		//Ä°ÅŸaret '*' ise yÄ±ÄŸÄ±ndan terimler Ã§ekiliyor.
 			sayi2=popSayi();
-			sonuc=sayi1*sayi2;		//İşlem sonucu tekrardan yığına atılıyor.
+			sonuc=sayi1*sayi2;		//Ä°ÅŸlem sonucu tekrardan yÄ±ÄŸÄ±na atÄ±lÄ±yor.
 			pushSayi(sonuc);
-			pushIsaret('+');		//Öncelikli işlem yapıldıktan sonra gelen işaretim yığına atılıyor.
-			sayiStackYazdir();		//Yazdırma işlemleri.
+			pushIsaret('+');		//Ã–ncelikli iÅŸlem yapÄ±ldÄ±ktan sonra gelen iÅŸaretim yÄ±ÄŸÄ±na atÄ±lÄ±yor.
+			sayiStackYazdir();		//YazdÄ±rma iÅŸlemleri.
 			isaretStackYazdir();	
-			}else {						//Gelen işaret '*' değilse '/' dir.
-			sayi2=popSayi();			//Yığına son giren bölen ilk giren bölünün olur o sebepten ilk bölen çekildi.
+			}else {					//Gelen iÅŸaret '*' deÄŸilse '/' dir.
+			sayi2=popSayi();			//YÄ±ÄŸÄ±na son giren bÃ¶len ilk giren bÃ¶lÃ¼nÃ¼n olur o sebepten ilk bÃ¶len Ã§ekildi.
 			sayi1=popSayi();
 			sonuc=sayi1/sayi2;
-			pushSayi(sonuc);			//İşlem sonucu tekrardan Sayı Yığınına atıldı.
-			pushIsaret('+');			//Öncelikli işlem yapıldıktan sonra gelen işaretim yığına atılıyor.
-			sayiStackYazdir();			//Yazdırma işlemleri
+			pushSayi(sonuc);			//Ä°ÅŸlem sonucu tekrardan SayÄ± YÄ±ÄŸÄ±nÄ±na atÄ±ldÄ±.
+			pushIsaret('+');			//Ã–ncelikli iÅŸlem yapÄ±ldÄ±ktan sonra gelen iÅŸaretim yÄ±ÄŸÄ±na atÄ±lÄ±yor.
+			sayiStackYazdir();			//YazdÄ±rma iÅŸlemleri
 			isaretStackYazdir();
 			}
-		}else if(peekIsaret()=='+'){	//Yığının tepesindeki işaret '+' ise çekiyorum
-			popIsaret();				//Yığındaki işaret çekildi.
-			sayi1=popSayi();			//Toplama işareti olduğundan yığındaki 2 terim çekildi.
+		}else if(peekIsaret()=='+'){			//YÄ±ÄŸÄ±nÄ±n tepesindeki iÅŸaret '+' ise Ã§ekiyorum
+			popIsaret();				//YÄ±ÄŸÄ±ndaki iÅŸaret Ã§ekildi.
+			sayi1=popSayi();			//Toplama iÅŸareti olduÄŸundan yÄ±ÄŸÄ±ndaki 2 terim Ã§ekildi.
 			sayi2=popSayi();
 			sonuc=sayi1+sayi2;		
-			pushSayi(sonuc);			//Çekilen sayıların işlem sonucu tekrardan yığına atıldı.
-			pushIsaret('+');			//Eşit öncelikli işlem yapıldıktan sonra gelen işaretim yığına atılıyor.
-			sayiStackYazdir();			//Yazdırma işlemleri.
+			pushSayi(sonuc);			//Ã‡ekilen sayÄ±larÄ±n iÅŸlem sonucu tekrardan yÄ±ÄŸÄ±na atÄ±ldÄ±.
+			pushIsaret('+');			//EÅŸit Ã¶ncelikli iÅŸlem yapÄ±ldÄ±ktan sonra gelen iÅŸaretim yÄ±ÄŸÄ±na atÄ±lÄ±yor.
+			sayiStackYazdir();			//YazdÄ±rma iÅŸlemleri.
 			isaretStackYazdir();
 		}else if(peekIsaret()=='-'){
-			popIsaret();				//Yığından işaret çekildi.
-			sayi2=popSayi();			//Yığına ilk giren sayı öncelikli olduğundan ters şekilde sayılar çekildi.
+			popIsaret();				//YÄ±ÄŸÄ±ndan iÅŸaret Ã§ekildi.
+			sayi2=popSayi();			//YÄ±ÄŸÄ±na ilk giren sayÄ± Ã¶ncelikli olduÄŸundan ters ÅŸekilde sayÄ±lar Ã§ekildi.
 			sayi1=popSayi();
 			sonuc=sayi1-sayi2;			
-			pushSayi(sonuc);			//Oluşan işlem sonucu tekrardan yığına atıldı.
-			pushIsaret('+');			//Eşit öncelikli işlem yapıldıktan sonra gelen işaretim yığına atılıyor.
-			sayiStackYazdir();			//Yazdırma işlemleri.
+			pushSayi(sonuc);			//OluÅŸan iÅŸlem sonucu tekrardan yÄ±ÄŸÄ±na atÄ±ldÄ±.
+			pushIsaret('+');			//EÅŸit Ã¶ncelikli iÅŸlem yapÄ±ldÄ±ktan sonra gelen iÅŸaretim yÄ±ÄŸÄ±na atÄ±lÄ±yor.
+			sayiStackYazdir();			//YazdÄ±rma iÅŸlemleri.
 			isaretStackYazdir();
 		}
 		else if(peekIsaret()=='('){
-			pushIsaret('+');			//Yığındaki işaret '(' ise doğrudan yığına atıyorum.	
-			sayiStackYazdir();			//Yazdırma işlemleri
+			pushIsaret('+');			//YÄ±ÄŸÄ±ndaki iÅŸaret '(' ise doÄŸrudan yÄ±ÄŸÄ±na atÄ±yorum.	
+			sayiStackYazdir();			//YazdÄ±rma iÅŸlemleri
 			isaretStackYazdir();
 		}else{
-		pushIsaret('+');				//Toplama işlemi işaret yığınına atıldı.
-		sayiStackYazdir();				//Yazdırma işlemleri
+		pushIsaret('+');				//Toplama iÅŸlemi iÅŸaret yÄ±ÄŸÄ±nÄ±na atÄ±ldÄ±.
+		sayiStackYazdir();				//YazdÄ±rma iÅŸlemleri
 		isaretStackYazdir();
 		}
-	}else if(islem[i]=='-'){	//************************GELEN İŞLEM '-' İSE********************************
-		if(peekIsaret()=='*'||peekIsaret()=='/'){//Toplama işleminde yığın içindeki eşit ve öncelikli terimlere bakılıyor.
-			isaret=popIsaret();		//Öncelikli ise işaret yığından çekiliyor .		
+	}else if(islem[i]=='-'){	//************************GELEN Ä°ÅLEM '-' Ä°SE********************************
+		if(peekIsaret()=='*'||peekIsaret()=='/'){//Toplama iÅŸleminde yÄ±ÄŸÄ±n iÃ§indeki eÅŸit ve Ã¶ncelikli terimlere bakÄ±lÄ±yor.
+			isaret=popIsaret();		//Ã–ncelikli ise iÅŸaret yÄ±ÄŸÄ±ndan Ã§ekiliyor .		
 			if(isaret=='*'){			
-			sayi1=popSayi();		//İşaret '*' ise yığından terimler çekiliyor.
+			sayi1=popSayi();		//Ä°ÅŸaret '*' ise yÄ±ÄŸÄ±ndan terimler Ã§ekiliyor.
 			sayi2=popSayi();
-			sonuc=sayi1*sayi2;		//İşlem sonucu tekrardan yığına atılıyor.
+			sonuc=sayi1*sayi2;		//Ä°ÅŸlem sonucu tekrardan yÄ±ÄŸÄ±na atÄ±lÄ±yor.
 			pushSayi(sonuc);
-			pushIsaret('-');		//Öncelikli işlem yapıldıktan sonra gelen işaretim yığına atılıyor.
-			sayiStackYazdir();		//Yazdırma işlemleri.
+			pushIsaret('-');		//Ã–ncelikli iÅŸlem yapÄ±ldÄ±ktan sonra gelen iÅŸaretim yÄ±ÄŸÄ±na atÄ±lÄ±yor.
+			sayiStackYazdir();		//YazdÄ±rma iÅŸlemleri.
 			isaretStackYazdir();
-			}else {						//Gelen işaret '*' değilse '/' dir.
-			sayi2=popSayi();			//Yığına son giren bölen ilk giren bölünün olur o sebepten ilk bölen çekildi.
+			}else {					//Gelen iÅŸaret '*' deÄŸilse '/' dir.
+			sayi2=popSayi();			//YÄ±ÄŸÄ±na son giren bÃ¶len ilk giren bÃ¶lÃ¼nÃ¼n olur o sebepten ilk bÃ¶len Ã§ekildi.
 			sayi1=popSayi();
 			sonuc=sayi1/sayi2;
-			pushSayi(sonuc);			//İşlem sonucu tekrardan Sayı Yığınına atıldı.
-			pushIsaret('-');			//Öncelikli işlem yapıldıktan sonra gelen işaretim yığına atılıyor.
-			sayiStackYazdir();			//Yazdırma işlemleri.
+			pushSayi(sonuc);			//Ä°ÅŸlem sonucu tekrardan SayÄ± YÄ±ÄŸÄ±nÄ±na atÄ±ldÄ±.
+			pushIsaret('-');			//Ã–ncelikli iÅŸlem yapÄ±ldÄ±ktan sonra gelen iÅŸaretim yÄ±ÄŸÄ±na atÄ±lÄ±yor.
+			sayiStackYazdir();			//YazdÄ±rma iÅŸlemleri.
 			isaretStackYazdir();
 			}
-		}else if(peekIsaret()=='+'){	//Yığının tepesindeki işaret '+' ise çekiyorum
-			popIsaret();				//Yığındaki işaret çekildi.
-			sayi1=popSayi();			//Toplama işareti olduğundan yığındaki 2 terim çekildi.
+		}else if(peekIsaret()=='+'){			//YÄ±ÄŸÄ±nÄ±n tepesindeki iÅŸaret '+' ise Ã§ekiyorum
+			popIsaret();				//YÄ±ÄŸÄ±ndaki iÅŸaret Ã§ekildi.
+			sayi1=popSayi();			//Toplama iÅŸareti olduÄŸundan yÄ±ÄŸÄ±ndaki 2 terim Ã§ekildi.
 			sayi2=popSayi();
 			sonuc=sayi1+sayi2;		
-			pushSayi(sonuc);			//Çekilen sayıların işlem sonucu tekrardan yığına atıldı.
-			pushIsaret('-');			//Eşit öncelikli işlem yapıldıktan sonra gelen işaretim yığına atılıyor.
-			sayiStackYazdir();			//Yazdırma işlemleri.
+			pushSayi(sonuc);			//Ã‡ekilen sayÄ±larÄ±n iÅŸlem sonucu tekrardan yÄ±ÄŸÄ±na atÄ±ldÄ±.
+			pushIsaret('-');			//EÅŸit Ã¶ncelikli iÅŸlem yapÄ±ldÄ±ktan sonra gelen iÅŸaretim yÄ±ÄŸÄ±na atÄ±lÄ±yor.
+			sayiStackYazdir();			//YazdÄ±rma iÅŸlemleri.
 			isaretStackYazdir();
 		}else if(peekIsaret()=='-'){
-			popIsaret();				//Yığından işaret çekildi.
-			sayi2=popSayi();			//Yığına ilk giren sayı öncelikli olduğundan ters şekilde sayılar çekildi.
+			popIsaret();				//YÄ±ÄŸÄ±ndan iÅŸaret Ã§ekildi.
+			sayi2=popSayi();			//YÄ±ÄŸÄ±na ilk giren sayÄ± Ã¶ncelikli olduÄŸundan ters ÅŸekilde sayÄ±lar Ã§ekildi.
 			sayi1=popSayi();
 			sonuc=sayi1-sayi2;			
-			pushSayi(sonuc);			//Oluşan işlem sonucu tekrardan yığına atıldı.
-			pushIsaret('-');			//Eşit öncelikli işlem yapıldıktan sonra gelen işaretim yığına atılıyor.
-			sayiStackYazdir();			//Yazdırma işlemleri.
+			pushSayi(sonuc);			//OluÅŸan iÅŸlem sonucu tekrardan yÄ±ÄŸÄ±na atÄ±ldÄ±.
+			pushIsaret('-');			//EÅŸit Ã¶ncelikli iÅŸlem yapÄ±ldÄ±ktan sonra gelen iÅŸaretim yÄ±ÄŸÄ±na atÄ±lÄ±yor.
+			sayiStackYazdir();			//YazdÄ±rma iÅŸlemleri.
 			isaretStackYazdir();
 		}
 		else if(peekIsaret()=='('){
-			pushIsaret('-');			//Yığındaki işaret '(' ise doğrudan yığına atıyorum.	
-			sayiStackYazdir();			//Yazdırma işlemleri.
+			pushIsaret('-');			//YÄ±ÄŸÄ±ndaki iÅŸaret '(' ise doÄŸrudan yÄ±ÄŸÄ±na atÄ±yorum.	
+			sayiStackYazdir();			//YazdÄ±rma iÅŸlemleri.
 			isaretStackYazdir();
 		}else
-		pushIsaret('-');				//Çıkarma işlemi işaret yığınına atıldı.
-		sayiStackYazdir();				//Yazdırma işlemleri.
+		pushIsaret('-');				//Ã‡Ä±karma iÅŸlemi iÅŸaret yÄ±ÄŸÄ±nÄ±na atÄ±ldÄ±.
+		sayiStackYazdir();				//YazdÄ±rma iÅŸlemleri.
 		isaretStackYazdir();
 	}
-	//**********************IŞARET ')' ISE******************************
+	//**********************IÅARET ')' ISE******************************
 	else if(islem[i]==')'){
-		isaret=popIsaret();			//İlk işaret çekiliyor.
-		while(isaret!='('){			//Gelen işaret '(' olmadığı sürece döngü devam ediyor.
+		isaret=popIsaret();			//Ä°lk iÅŸaret Ã§ekiliyor.
+		while(isaret!='('){			//Gelen iÅŸaret '(' olmadÄ±ÄŸÄ± sÃ¼rece dÃ¶ngÃ¼ devam ediyor.
 			
 			if(isaret=='*'){			
-			sayi1=popSayi();		//İşaret '*' ise yığından terimler çekiliyor.
+			sayi1=popSayi();		//Ä°ÅŸaret '*' ise yÄ±ÄŸÄ±ndan terimler Ã§ekiliyor.
 			sayi2=popSayi();
-			sonuc=sayi1*sayi2;		//İşlem sonucu tekrardan yığına atılıyor.
+			sonuc=sayi1*sayi2;		//Ä°ÅŸlem sonucu tekrardan yÄ±ÄŸÄ±na atÄ±lÄ±yor.
 			pushSayi(sonuc);
-			sayiStackYazdir();		//Yazdırma işlemleri.
+			sayiStackYazdir();		//YazdÄ±rma iÅŸlemleri.
 			isaretStackYazdir();	
-			}else if(isaret=='/') {		//Gelen işaret '*' değilse '/' dir.
-			sayi2=popSayi();			//Yığına son giren bölen ilk giren bölünün olur o sebepten ilk bölen çekildi.
+			}else if(isaret=='/') {		//Gelen iÅŸaret '*' deÄŸilse '/' dir.
+			sayi2=popSayi();		//YÄ±ÄŸÄ±na son giren bÃ¶len ilk giren bÃ¶lÃ¼nÃ¼n olur o sebepten ilk bÃ¶len Ã§ekildi.
 			sayi1=popSayi();
 			sonuc=sayi1/sayi2;
-			pushSayi(sonuc);			//İşlem sonucu tekrardan Sayı Yığınına atıldı.
-			sayiStackYazdir();			//Yazdırma işlemleri.
+			pushSayi(sonuc);		//Ä°ÅŸlem sonucu tekrardan SayÄ± YÄ±ÄŸÄ±nÄ±na atÄ±ldÄ±.
+			sayiStackYazdir();		//YazdÄ±rma iÅŸlemleri.
 			isaretStackYazdir();	
 			}
-		else if(isaret=='+'){			//Yığının tepesindeki işaret '+' ise çekiyorum
-			sayi1=popSayi();			//Toplama işareti olduğundan yığındaki 2 terim çekildi.
+		else if(isaret=='+'){			//YÄ±ÄŸÄ±nÄ±n tepesindeki iÅŸaret '+' ise Ã§ekiyorum
+			sayi1=popSayi();		//Toplama iÅŸareti olduÄŸundan yÄ±ÄŸÄ±ndaki 2 terim Ã§ekildi.
 			sayi2=popSayi();
 			sonuc=sayi1+sayi2;		
-			pushSayi(sonuc);			//Çekilen sayıların işlem sonucu tekrardan yığına atıldı.
-			sayiStackYazdir();			//Yazdırma işlemleri.
+			pushSayi(sonuc);		//Ã‡ekilen sayÄ±larÄ±n iÅŸlem sonucu tekrardan yÄ±ÄŸÄ±na atÄ±ldÄ±.
+			sayiStackYazdir();		//YazdÄ±rma iÅŸlemleri.
 			isaretStackYazdir();	
 		}else if(isaret=='-'){
-			sayi2=popSayi();			//Yığına ilk giren sayı öncelikli olduğundan ters şekilde sayılar çekildi.
+			sayi2=popSayi();		//YÄ±ÄŸÄ±na ilk giren sayÄ± Ã¶ncelikli olduÄŸundan ters ÅŸekilde sayÄ±lar Ã§ekildi.
 			sayi1=popSayi();
 			sonuc=sayi1-sayi2;			
-			pushSayi(sonuc);			//Oluşan işlem sonucu tekrardan yığına atıldı.
-			sayiStackYazdir();			//Yazdırma işlemleri.
+			pushSayi(sonuc);		//OluÅŸan iÅŸlem sonucu tekrardan yÄ±ÄŸÄ±na atÄ±ldÄ±.
+			sayiStackYazdir();		//YazdÄ±rma iÅŸlemleri.
 			isaretStackYazdir();	
 		}
-	isaret=popIsaret();					//Döngünün devamı için işaret çekmeye devam ediyorum.
+	isaret=popIsaret();				//DÃ¶ngÃ¼nÃ¼n devamÄ± iÃ§in iÅŸaret Ã§ekmeye devam ediyorum.
 	}
 			sayiStackYazdir();
-			isaretStackYazdir();		//En son '(' yığından çekildikten sonraki yazdırma işlemi.
+			isaretStackYazdir();		//En son '(' yÄ±ÄŸÄ±ndan Ã§ekildikten sonraki yazdÄ±rma iÅŸlemi.
 			
 			
 	}
 }
 	//**********************************ISLEMLER BITTI********************************
-		while(!isIsaretEmpty()){	//İşlemler bittikten sonra yığın boşalana kadar işaret çekiyorum.
+		while(!isIsaretEmpty()){			//Ä°ÅŸlemler bittikten sonra yÄ±ÄŸÄ±n boÅŸalana kadar iÅŸaret Ã§ekiyorum.
 			isaret=popIsaret();
 			
 			if(isaret=='*'){			
-			sayi1=popSayi();		//İşaret '*' ise yığından terimler çekiliyor.
+			sayi1=popSayi();			//Ä°ÅŸaret '*' ise yÄ±ÄŸÄ±ndan terimler Ã§ekiliyor.
 			sayi2=popSayi();
-			sonuc=sayi1*sayi2;		//İşlem sonucu tekrardan yığına atılıyor.
+			sonuc=sayi1*sayi2;			//Ä°ÅŸlem sonucu tekrardan yÄ±ÄŸÄ±na atÄ±lÄ±yor.
 			pushSayi(sonuc);		
-			sayiStackYazdir();		//Yazdırma işlemleri.
+			sayiStackYazdir();			//YazdÄ±rma iÅŸlemleri.
 			isaretStackYazdir();	
-			}else if(isaret=='/') {		//Gelen işaret '*' değilse '/' dir.
-			sayi2=popSayi();			//Yığına son giren bölen ilk giren bölünün olur o sebepten ilk bölen çekildi.
+			}else if(isaret=='/') {			//Gelen iÅŸaret '*' deÄŸilse '/' dir.
+			sayi2=popSayi();			//YÄ±ÄŸÄ±na son giren bÃ¶len ilk giren bÃ¶lÃ¼nÃ¼n olur o sebepten ilk bÃ¶len Ã§ekildi.
 			sayi1=popSayi();
 			sonuc=sayi1/sayi2;
-			pushSayi(sonuc);			//İşlem sonucu tekrardan Sayı Yığınına atıldı.
-			sayiStackYazdir();			//Yazdırma işlemleri.
+			pushSayi(sonuc);			//Ä°ÅŸlem sonucu tekrardan SayÄ± YÄ±ÄŸÄ±nÄ±na atÄ±ldÄ±.
+			sayiStackYazdir();			//YazdÄ±rma iÅŸlemleri.
 			isaretStackYazdir();	
 			}
-		else if(isaret=='+'){			//Yığının tepesindeki işaret '+' ise çekiyorum
-			sayi1=popSayi();			//Toplama işareti olduğundan yığındaki 2 terim çekildi.
+		else if(isaret=='+'){				//YÄ±ÄŸÄ±nÄ±n tepesindeki iÅŸaret '+' ise Ã§ekiyorum
+			sayi1=popSayi();			//Toplama iÅŸareti olduÄŸundan yÄ±ÄŸÄ±ndaki 2 terim Ã§ekildi.
 			sayi2=popSayi();
 			sonuc=sayi1+sayi2;		
-			pushSayi(sonuc);			//Çekilen sayıların işlem sonucu tekrardan yığına atıldı.
-			sayiStackYazdir();			//Yazdırma işlemleri.
+			pushSayi(sonuc);			//Ã‡ekilen sayÄ±larÄ±n iÅŸlem sonucu tekrardan yÄ±ÄŸÄ±na atÄ±ldÄ±.
+			sayiStackYazdir();			//YazdÄ±rma iÅŸlemleri.
 			isaretStackYazdir();	
 		}else if(isaret=='-'){
-			sayi2=popSayi();			//Yığına ilk giren sayı öncelikli olduğundan ters şekilde sayılar çekildi.
+			sayi2=popSayi();			//YÄ±ÄŸÄ±na ilk giren sayÄ± Ã¶ncelikli olduÄŸundan ters ÅŸekilde sayÄ±lar Ã§ekildi.
 			sayi1=popSayi();
 			sonuc=sayi1-sayi2;			
-			pushSayi(sonuc);			//Oluşan işlem sonucu tekrardan yığına atıldı.
-			sayiStackYazdir();			//Yazdırma işlemleri.
+			pushSayi(sonuc);			//OluÅŸan iÅŸlem sonucu tekrardan yÄ±ÄŸÄ±na atÄ±ldÄ±.
+			sayiStackYazdir();			//YazdÄ±rma iÅŸlemleri.
 			isaretStackYazdir();	
 		}
 		
 	}
 	
-	printf("Islem sonucu : %d ",popSayi());		//Tüm işlemler bittikten sonra Sayi Yığınındaki son değer olan sonucu çekiyorum.
+	printf("Islem sonucu : %d ",popSayi());			//TÃ¼m iÅŸlemler bittikten sonra Sayi YÄ±ÄŸÄ±nÄ±ndaki son deÄŸer olan sonucu Ã§ekiyorum.
 			
 	
 	return 0;
