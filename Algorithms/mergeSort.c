@@ -1,28 +1,28 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-void Merge(int l,int h,int mid,int dizi[]){						//Bu fonksiyonum birleştirme için kullanılacaktır.
-	int i,j,k;													//i ilk dizinin indisini j ikinci dizinin indisini k ise birleştirmeyi yapacağım		
-	i=l;														//dizinin indisini tutmaktadır.
-	j=mid+1;													//İkinci dizinin indisi mid+1 den başlamaktadır.
-	int *tmp=(int *)malloc(sizeof(int)*(h+1));					//Önce dizideki elemanları yeni bir diziye kopyalamam gerekecektir.
+void Merge(int l,int h,int mid,int dizi[]){						//Bu fonksiyonum birleÅŸtirme iÃ§in kullanÄ±lacaktÄ±r.
+	int i,j,k;									//i ilk dizinin indisini j ikinci dizinin indisini k ise birleÅŸtirmeyi yapacaÄŸÄ±m		
+	i=l;										//dizinin indisini tutmaktadÄ±r.
+	j=mid+1;									//Ä°kinci dizinin indisi mid+1 den baÅŸlamaktadÄ±r.
+	int *tmp=(int *)malloc(sizeof(int)*(h+1));					//Ã–nce dizideki elemanlarÄ± yeni bir diziye kopyalamam gerekecektir.
 	
 	for(k=l;k<=h;k++){	
-	tmp[k]=dizi[k];												//Kopyalama işlemi neden gerekli çünkü asıl diziye hangi değerin geleceğini
-	}															//bu kopyalanmış dizinin içerisinden bakacağım.
+	tmp[k]=dizi[k];									//Kopyalama iÅŸlemi neden gerekli Ã§Ã¼nkÃ¼ asÄ±l diziye hangi deÄŸerin geleceÄŸini
+	}										//bu kopyalanmÄ±ÅŸ dizinin iÃ§erisinden bakacaÄŸÄ±m.
 	
-	for(k=l;k<=h;k++){											//Sırayla asıl diziyi doldurmaya başlıyorum.
+	for(k=l;k<=h;k++){								//SÄ±rayla asÄ±l diziyi doldurmaya baÅŸlÄ±yorum.
 		
-	if(i>mid){													//Eğer i değerim yani ilk diziyi tutan indis değerim mid değerine ulaşmışsa
-			dizi[k]=tmp[j];										//demek ki birinci dizideki tüm elemanları almışımdır.
-			j++;												//O zaman ikinci dizinin kalan sıralanmış elemanlarını tek tek koyabilirim.
+	if(i>mid){									//EÄŸer i deÄŸerim yani ilk diziyi tutan indis deÄŸerim mid deÄŸerine ulaÅŸmÄ±ÅŸsa
+			dizi[k]=tmp[j];							//demek ki birinci dizideki tÃ¼m elemanlarÄ± almÄ±ÅŸÄ±mdÄ±r.
+			j++;								//O zaman ikinci dizinin kalan sÄ±ralanmÄ±ÅŸ elemanlarÄ±nÄ± tek tek koyabilirim.
 		}else{
-		if(j>h){												//Eğer j değerim yani ikinci diziyi tutan indis değerim high değerine yani
-		dizi[k]=tmp[i];											//dizinin sonuna ulaşmışsa demek ki ikinci diziyi bitirmişim demektir.
-			i++;												//birinci dizinin kalan sıralanmış elemanlarını koyabilirim.
+		if(j>h){								//EÄŸer j deÄŸerim yani ikinci diziyi tutan indis deÄŸerim high deÄŸerine yani
+		dizi[k]=tmp[i];								//dizinin sonuna ulaÅŸmÄ±ÅŸsa demek ki ikinci diziyi bitirmiÅŸim demektir.
+			i++;								//birinci dizinin kalan sÄ±ralanmÄ±ÅŸ elemanlarÄ±nÄ± koyabilirim.
 		}else{
-				if(tmp[j]<tmp[i]){								//Eğer iki değere de henüz ulaşmamışsam dizilerin sıradaki elemanlarını karşı
-				dizi[k]=tmp[j];									//laştırıyorum ve küçük olanı asıl diziye ekleyip indisini bir arttırıyorum.
+				if(tmp[j]<tmp[i]){					//EÄŸer iki deÄŸere de henÃ¼z ulaÅŸmamÄ±ÅŸsam dizilerin sÄ±radaki elemanlarÄ±nÄ± karÅŸÄ±
+				dizi[k]=tmp[j];						//laÅŸtÄ±rÄ±yorum ve kÃ¼Ã§Ã¼k olanÄ± asÄ±l diziye ekleyip indisini bir arttÄ±rÄ±yorum.
 				j++;
 			}else{
 				dizi[k]=tmp[i];
@@ -32,12 +32,12 @@ void Merge(int l,int h,int mid,int dizi[]){						//Bu fonksiyonum birleştirme iç
 	}
 }
 }
-void mergeSort(int dizi[],int l,int h){							//Bu kısım işlemi divide yapma kısmıdır.
-	if(l<h){													//low değerim high değerine eşit veya küçük olana kadar diziyi bölüyorum.
-		int mid=(l+h)/2;										//Mid değerini aldım
-		mergeSort(dizi,l,mid);									//Baştan mide kadar böldüm.
-		mergeSort(dizi,mid+1,h);								//Midden sona kadar böldüm.
-		Merge(l,h,mid,dizi);									//En son tüm bölünmüş parçaları birleştirdim.
+void mergeSort(int dizi[],int l,int h){							//Bu kÄ±sÄ±m iÅŸlemi divide yapma kÄ±smÄ±dÄ±r.
+	if(l<h){									//low deÄŸerim high deÄŸerine eÅŸit veya kÃ¼Ã§Ã¼k olana kadar diziyi bÃ¶lÃ¼yorum.
+		int mid=(l+h)/2;							//Mid deÄŸerini aldÄ±m
+		mergeSort(dizi,l,mid);							//BaÅŸtan mide kadar bÃ¶ldÃ¼m.
+		mergeSort(dizi,mid+1,h);						//Midden sona kadar bÃ¶ldÃ¼m.
+		Merge(l,h,mid,dizi);							//En son tÃ¼m bÃ¶lÃ¼nmÃ¼ÅŸ parÃ§alarÄ± birleÅŸtirdim.
 	}
 }
 
