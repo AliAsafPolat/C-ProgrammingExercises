@@ -27,7 +27,7 @@ int horspool(char text[],int textlen,char pat[],int patlen,int alphsize){
 	i=patlen-1;								//i burada kaydırma durumunu tutan değişken olarak görev alır.
 	while(i<textlen){							//Eğer text in uzunluğuna gelmişsek artık durması gerekli.
 		j=0;								//j burada eşleşme durumlarını tutmaktadır.
-		while(j<=patlen&&pat[patlen-1-j]==text[i-j])			//Bilindiği üzere bu algoritmada kelime asaf ise önce f harfi karşılaştırılır
+		while(j<patlen&&pat[patlen-1-j]==text[i-j])			//Bilindiği üzere bu algoritmada kelime asaf ise önce f harfi karşılaştırılır
 		j++;								//Eşleşme gözlenirse a harfine geçilir.
 		if(j==patlen){							//pat[patlen-1-j]==text[i-j] bu yazımın mantığı da budur önce patternin son harfi kontrol edilir.
 		return i-patlen+1;						//Eğer eşleşme var ise patternin geçtiği yeri döndür.
