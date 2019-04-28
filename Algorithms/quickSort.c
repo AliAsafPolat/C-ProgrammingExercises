@@ -2,24 +2,24 @@
 #include<stdlib.h>
 
 
-int partition(int dizi[],int l,int h){							//Aslında bütün sıralama işlemleri burada gerçekleşiyor.
-	int pivot=dizi[l];											//low değerini pivot olarak alıyoruz.
-	int i=l;													//Dizinin başından itibaren pivottan büyük eleman var mı diye bakıyorum.
-	int j=h;													//Dizinin sonundan itibaren pivottan küçük eleman var mı diye bakıyorum.
+int partition(int dizi[],int l,int h){							//AslÄ±nda bÃ¼tÃ¼n sÄ±ralama iÅŸlemleri burada gerÃ§ekleÅŸiyor.
+	int pivot=dizi[l];								//low deÄŸerini pivot olarak alÄ±yoruz.
+	int i=l;									//Dizinin baÅŸÄ±ndan itibaren pivottan bÃ¼yÃ¼k eleman var mÄ± diye bakÄ±yorum.
+	int j=h;									//Dizinin sonundan itibaren pivottan kÃ¼Ã§Ã¼k eleman var mÄ± diye bakÄ±yorum.
 	int tmp;					
-	while(i<j){													//i<j olduğu sürece yapacağım swapler devam etsin.
-		while(dizi[i]<=pivot)									//Baştan itibaren arama yapıyorum.
-		i++;													//Pivottan büyük bulana kadar i=i+1
-		while(dizi[j]>pivot)									//Sondan itibaren arama yapıyorum.
-		j--;													//Pivottan küçük bulana kadar i=i-1
+	while(i<j){									//i<j olduÄŸu sÃ¼rece yapacaÄŸÄ±m swapler devam etsin.
+		while(dizi[i]<=pivot)							//BaÅŸtan itibaren arama yapÄ±yorum.
+		i++;									//Pivottan bÃ¼yÃ¼k bulana kadar i=i+1
+		while(dizi[j]>pivot)							//Sondan itibaren arama yapÄ±yorum.
+		j--;									//Pivottan kÃ¼Ã§Ã¼k bulana kadar i=i-1
 		
-		if(i<j){												//Eğer i değerim j değerinden küçük ise swap.
+		if(i<j){								//EÄŸer i deÄŸerim j deÄŸerinden kÃ¼Ã§Ã¼k ise swap.
 			tmp=dizi[j];
 			dizi[j]=dizi[i];
 			dizi[i]=tmp;
 		}
 	}
-	tmp=dizi[j];												//Eğer i değeri j den büyük ise pivot değeri ile j değeri swap.
+	tmp=dizi[j];									//EÄŸer i deÄŸeri j den bÃ¼yÃ¼k ise pivot deÄŸeri ile j deÄŸeri swap.
 	dizi[j]=pivot;
 	dizi[l]=tmp;
 	return j;
@@ -28,9 +28,9 @@ int partition(int dizi[],int l,int h){							//Aslında bütün sıralama işlemleri 
 
 void quickSort(int dizi[],int l,int h){
 	if(l<h){
-		int j=partition(dizi,l,h);								//Pivot değerini belirliyorum.
-		quickSort(dizi,l,j);									//Sonra pivotun sol tarafını kendi arasında
-		quickSort(dizi,j+1,h);									//ve sağ tarafını kendi arasında sıralıyor.
+		int j=partition(dizi,l,h);						//Pivot deÄŸerini belirliyorum.
+		quickSort(dizi,l,j);							//Sonra pivotun sol tarafÄ±nÄ± kendi arasÄ±nda
+		quickSort(dizi,j+1,h);							//ve saÄŸ tarafÄ±nÄ± kendi arasÄ±nda sÄ±ralÄ±yor.
 	}
 }
 
