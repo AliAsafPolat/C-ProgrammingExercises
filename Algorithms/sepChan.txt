@@ -1,0 +1,140 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+struct node{
+	int key;
+	char name[40];
+	struct node* next;
+};
+
+struct hash{
+	struct node *head;
+	int count;
+};
+
+struct hash *hashTable=NULL;
+
+struct node* createNode(int key,char name[]){
+	struct node* newNode;
+	newNode=(struct node*)malloc(sizeof(struct node));
+	newNode->key=key;
+	strcpy(newNode->name,name);
+	newNode->next=NULL;
+	return newNode;
+}
+
+
+
+int func(int key,int tablesize){
+	return (key*13)%tablesize+1;
+}
+
+
+void insert(struct hash *hashtable,int tableSize,int key,char name[]){
+	int i;
+	int addr=func(key,tableSize);						// adres kadar gidicem orası boş değilse linkleyeceğim.
+	
+	if(hashtable[addr].head==NULL){
+	struct node * newNode=createNode(key,name);
+	hashtable[addr].head=newNode;								// hangi adres hangi key e atanmış onu görmek istiyorum sadece.
+	hashtable[addr].count+=1;
+	}
+	else{
+		struct node * newNode=createNode(key,name);
+		struct node *p;
+		p=hashtable[addr].head;
+		while(p->next!=NULL)
+			p=p->next;
+		p->next=newNode;
+		hashtable[addr].count+=1;
+	
+}
+}
+
+void goster(struct hash *hashtable,int n){
+	int i;
+	struct node *p;
+	printf("--------------------------------------------------------------\n");
+	for(i=0;i<n;i++){
+		printf("Name : %s",hashtable[i].head->name);
+		p=hashtable[i].head;
+		while(p!=NULL){
+			printf("Name : %s",p->name);
+			p=p->next;
+		}
+		
+		
+	}
+		
+	printf("\n\n");
+}
+
+void menu(){
+	printf("Islem seciniz:\n");
+	printf("1-)Insert\n");
+	printf("2-)Delete\n");
+	printf("3-)Search\n");
+	printf("4-)Hash Goster\n");
+	printf("5-)Cikis\n");
+}
+
+int main(){
+	int key,n,flag=1,secim,deger;
+	char name[40];
+	
+	printf("Table Size belirleyeniz : "); 	scanf("%d",&n);
+	
+	hashTable=(struct hash*)malloc(sizeof(struct hash)*n);
+	
+	if(hashTable==NULL){
+		printf("İslem basarisiz !");
+		return -1;
+	}
+	
+	
+while(flag){
+menu();
+scanf("%d",&secim);
+
+
+
+switch(secim){
+	case 1:
+		printf("Deger giriniz : ");
+		scanf("%d",&deger);
+		printf("Name giriniz : ");
+		scanf("%s",name);
+		insert(hashTable,n,deger,name);
+		break;
+/*	case 2:
+		printf("Deger giriniz : ");
+		scanf("%d",&deger);
+		delete(hashTable,tablesize,deger);
+		break;
+	case 3:
+		printf("Deger giriniz : ");
+		scanf("%d",&deger);
+		ret=search(hashTable,tablesize,deger);
+		if(ret!=-1)
+		printf("Bulundugu index : %d\n",ret);	
+		break;
+	case 4:
+		goster(hashTable,tablesize);
+		break;*/
+	case 5:
+		flag=0;
+		break;			
+}
+
+goster(hashTable,n);
+
+}
+	
+	printf("Islem basarili.");
+	
+	return 0;
+
+
+}
+
